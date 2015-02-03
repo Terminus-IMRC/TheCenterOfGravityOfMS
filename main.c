@@ -3,7 +3,9 @@
 #include "libms.h"
 #include "error.h"
 
-#define MY_X 4
+#ifndef MY_X
+#error Define MY_X in compile
+#endif
 
 #if MY_X == 4
 #define MSFILE "ms4.txt"
