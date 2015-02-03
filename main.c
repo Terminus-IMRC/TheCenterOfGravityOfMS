@@ -42,8 +42,8 @@ int main()
 			tcogom_x += ms[i] * (i % ms_X(&st));
 			tcogom_y += ms[i] * (int)(i / ms_X(&st));
 		}
-		tcogom_x /= ms_Ceilings(&st);
-		tcogom_y /= ms_Ceilings(&st);
+		tcogom_x /= ms_Ceilings(&st)*(1+ms_Ceilings(&st))/2;
+		tcogom_y /= ms_Ceilings(&st)*(1+ms_Ceilings(&st))/2;
 
 		printf("x=%d y=%d\n", tcogom_x, tcogom_y);
 	}
