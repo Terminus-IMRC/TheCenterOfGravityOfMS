@@ -31,7 +31,7 @@ int main()
 
 	while (fgets(buf, 0xffff, fp) != NULL) {
 		int i;
-		int tcogom_x = 0, tcogom_y = 0;
+		float tcogom_x = 0.0, tcogom_y = 0.0;
 
 		str_to_ms(ms, buf, &st);
 
@@ -42,10 +42,10 @@ int main()
 			tcogom_x += ms[i] * (i % ms_X(&st));
 			tcogom_y += ms[i] * (int)(i / ms_X(&st));
 		}
-		tcogom_x /= ms_Ceilings(&st)*(1+ms_Ceilings(&st))/2;
-		tcogom_y /= ms_Ceilings(&st)*(1+ms_Ceilings(&st))/2;
+		tcogom_x /= ms_Ceilings(&st)*(1+ms_Ceilings(&st))/2.0;
+		tcogom_y /= ms_Ceilings(&st)*(1.0+ms_Ceilings(&st))/2.0;
 
-		printf("x=%d y=%d\n", tcogom_x, tcogom_y);
+		printf("x=%f y=%f\n", tcogom_x, tcogom_y);
 	}
 
 	fclose(fp);
